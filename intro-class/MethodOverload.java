@@ -122,10 +122,6 @@ public class MethodOverload{
 		System.out.println("Your name is "+firstName+" "+ middleName+ " "+ lastName);
 		
 	}
-
-	int [] g = 
-	int {} g = 
-
 }
 
 

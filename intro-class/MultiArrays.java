@@ -29,10 +29,10 @@ public class MultiArrays{
 		}
 	}
 
-	public static void flow(String[][] names) {
+	public static void flow2(String[][] names) {
 		for (int i =0 ;i < names.length ; i++ ) {
 			for (int j =0; j < names[1].length ;i++ ) {
-				System.out.println(named[0][i] + names [1][j]);	
+				System.out.println(names[0][i] + names [1][j]);	
 			}
 		}
 	}

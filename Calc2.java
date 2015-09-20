@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-public class Calculator{
+public class Calc2{
 	public static Scanner in = new Scanner(System.in);
 	
 	public static void add(float first, float second){
