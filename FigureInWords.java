@@ -28,6 +28,8 @@ public class FigureInWords{
 			    };
 			    System.out.println("Enter a number to convert to words (or 'done' to quit):");
 			    numb = in.nextLine();
+			    word="";
+			    s="";
 		};
 		System.out.println(" Thank you for using our service");
 	}
@@ -48,7 +50,7 @@ public class FigureInWords{
 
 	               if (num < 0) {
 	               		num *= -1;
-	               		s = "minus ";
+	               		s = "negative ";
 	               }
 
 	               if (num == 0) System.out.println("Zero");
