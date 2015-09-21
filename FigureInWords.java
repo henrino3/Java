@@ -1,36 +1,38 @@
-/*Calculator by Henry and Opeyemi */
+ /*Calculator by Henry and Opeyemi */
 import java.util.Scanner;
 
-public class NumToWord{
+public class FigureInWords{
 	public static  Scanner in = new Scanner(System.in);
 
-	public static  String  [] units = {
-			"", " one ", " two ", " three ", " four ", " five ", " six ", " seven ", " eight ",
+	public static  String  [] units = {"", " one ", " two ", " three ", " four ", " five ", " six ", " seven ", " eight ",
 			" nine ", " ten ", " eleven ", " twelve ", " thirteen ", " fourteen ", " fifteen ",
-			" sixteen ", " seventeen ", " eighteen ", " nineteen " 
-		} ;
+			" sixteen ", " seventeen ", " eighteen ", " nineteen " } ;
 
-	public static  String [] tens = {
-			"", ""," twenty ", " thirty ", " fourty ", " fifty ", " sixty ", " seventy ", " eighty ", " ninty "
-		};
-
-	public static  String [] big = {
-			" hundred ", " thousand ", " million ", " billion "
-		};
+	public static  String [] tens = {"", ""," twenty ", " thirty ", " fourty ", " fifty ", " sixty ", " seventy ", " eighty ", " ninty "};
+	public static  String [] big = {" hundred ", " thousand ", " million ", " billion "};
 	public static  int unit, ten, hundred, thousand,tenThousand, tenMillion, hundredThousand, million, toTenMillion, hundredMillion, toHundredMillion, billion, tenUnit, tohundred, toThousand, toTenThousand, toHundredThousand, toMillion;
-
 	public static  String word = "",s = "", str = "hundred ";
-
+	
 	public static void main(String[] args) {   
-		init();
+
+		System.out.println("Enter a number to convert to words (or 'done' to quit):");
+		String numb = in.nextLine();
+
+		while(!(numb.equals ("done"))) {
+			 try {
+			         int num = Integer.parseInt(numb);
+			            init(num);
+			        } 
+			    catch (NumberFormatException ex){
+			        System.out.println("You have Entered the worng value");
+			    };
+			    System.out.println("Enter a number to convert to words (or 'done' to quit):");
+			    numb = in.nextLine();
+		};
+		System.out.println(" Thank you for using our service");
 	}
 
-	public static void init( ){
-		
-		System.out.println("Enter Number");
-		int num = in.nextInt();
-		
-
+	public static void init(int num ){
 
 
 	            int digit = 0;
@@ -171,7 +173,7 @@ public class NumToWord{
 			 if (toTenMillion  != 0) str = "hundred and";
 			 if(toTenMillion == 0) str = "";
 			word = units[hundredMillion] +str  +word;
-		return word; 
+		return word;
 			
 	}
 
