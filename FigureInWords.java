@@ -1,4 +1,3 @@
- /*Calculator by Henry and Opeyemi */
 import java.util.Scanner;
 
 public class FigureInWords{
@@ -12,6 +11,7 @@ public class FigureInWords{
 	public static  String [] big = {" hundred ", " thousand ", " million ", " billion "};
 	public static  int unit, ten, hundred, thousand,tenThousand, tenMillion, hundredThousand, million, toTenMillion, hundredMillion, toHundredMillion, billion, tenUnit, tohundred, toThousand, toTenThousand, toHundredThousand, toMillion;
 	public static  String word = "",s = "", str = "hundred ";
+	public static int [] n = {0, 10, 100 ,1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
 	
 	public static void main(String[] args) {   
 
@@ -103,8 +103,8 @@ public class FigureInWords{
 
 	public static String tens(int num) {
 		if (num > 20){
-			ten =   num/10;
-			unit = num%10;
+			ten =   num/n[1];
+			unit = num%n[1];
 			word =tens[ten]+""+units[unit];
 		};
 		return word;
@@ -112,8 +112,8 @@ public class FigureInWords{
 	}
 
 	public static String hundreds(int num) {
-			 hundred = num/100;
-			 tenUnit= num%100;
+			 hundred = num/n[2];
+			 tenUnit= num%n[2];
 			 if (tenUnit != 0) str = "hundred and";
 			tens(tenUnit);
 			if(tenUnit == 0) str = "";
@@ -123,8 +123,8 @@ public class FigureInWords{
 	}
 	
 	public static String thousands(int num) {
-			thousand = num/1000;
-			tohundred = num %1000;
+			thousand = num/n[3];
+			tohundred = num %n[3];
 			hundreds(tohundred);
 			if(thousand == 0) str = "";
 			word = units[thousand] + big[1] +word;
@@ -132,8 +132,8 @@ public class FigureInWords{
 	}  
 
 	public static String tenThousands(int num) {
-			tenThousand = num/10000;
-			toThousand = num % 10000;
+			tenThousand = num/n[4];
+			toThousand = num % n[4];
 			thousands(toThousand);
 			word = tens[tenThousand]+word;
 		return word;
@@ -141,8 +141,8 @@ public class FigureInWords{
 	}
 
 	public static String hundredThousands(int num) {
-			hundredThousand = num/100000;
-			toTenThousand = num % 100000; 
+			hundredThousand = num/n[5];
+			toTenThousand = num % n[5]; 
 			 if (toTenThousand  != 0) str = "hundred and";
 			 if(toTenThousand == 0) str = "";
 			tenThousands(toTenThousand);
@@ -152,16 +152,16 @@ public class FigureInWords{
 
 
 	public static String  millions(int num) {
-			million = num/1000000;
-			toHundredThousand = num % 1000000; 
+			million = num/n[6];
+			toHundredThousand = num % n[6]; 
 			hundredThousands(toHundredThousand);
 			word = units[million] +big[2] +word;
 		return word;			
 	}
 
 	public static String  tenMillions(int num) {
-			tenMillion = num/10000000;
-			toMillion = num % 10000000; 
+			tenMillion = num/n[7];
+			toMillion = num % n[7]; 
 			millions(toMillion);
 			word = tens[tenMillion]  +word;
 		return word;
@@ -169,8 +169,8 @@ public class FigureInWords{
 	}
 
 	public static String  hundredMillions(int num) {
-			hundredMillion = num/100000000;
-			toTenMillion = num % 100000000; 
+			hundredMillion = num/n[8];
+			toTenMillion = num %  n[8]; 
 			tenMillions(toTenMillion);
 			 if (toTenMillion  != 0) str = "hundred and";
 			 if(toTenMillion == 0) str = "";
@@ -180,8 +180,8 @@ public class FigureInWords{
 	}
 
 	public static String billions(int num) {
-			billion = num/1000000000;
-			toHundredMillion = num %1000000000;
+			billion = num/n[9];
+			toHundredMillion = num %n[9];
 
 			hundredMillions(toHundredMillion);
 			word = units[billion] + big[3] +word;
